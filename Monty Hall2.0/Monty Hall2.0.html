@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Monty Hall</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="Style.css">
+</head>
+    
+    <body>
+        
+    <top>
+        <a id="menuButton" class="clicky">
+            <img src="Menu.png" style="width: 50px; position: absolute; margin-top: 15px; margin-left: 15px;">
+        </a>
+        <a href="HovedSide.html">
+            <img src="logo.png" style="height: 50px; position: absolute; margin-top: 15px; margin-left: 100px">
+        </a>
+        <h4>Monty Hall Side</h4>
+    </top>
+    
+    <leftmenu id="leftMenu">
+        <p1>Ekstra meny (tbd)</p1>
+    <footer>
+        <p1 style="font-size: 11px">
+            Laget av Andre Helland. <br>
+            Innhold er beskytet i henhold til norsk opphavsrett lov. <br>
+            Sist oppdatert 22.02.2019
+        </p1>
+    </footer>
+        
+    </leftmenu>
+        
+        
+    <div>
+        <h1>Monty Hall</h1>
+        <p id="p1">Hvilken dør vil du velge?</p>
+        <img id="r" src="rod.png" width="227" height="324" alt="Dør">
+        <img id="g" src="gronn.png" width="227" height="324" alt="Dør">
+        <img id="b" src="blaa.png" width="227" height="324" alt="Dør">
+    </div>
+            
+        <script>
+        
+        var rodDorEl = document.querySelector("#r");
+        var gronnDorEl = document.querySelector("#g");
+        var blaaDorEl = document.querySelector("#b");
+        var avsnittEl = document.querySelector("#p1");
+            
+        rodDorEl.addEventListener("click", sjekkDor);
+        gronnDorEl.addEventListener("click",sjekkDor);
+        blaaDorEl.addEventListener("click",sjekkDor);
+        
+        var bildor = Math.floor(Math.random() * 3) + 1;
+        var doropnet = false;
+        var dorvalgt = 0;
+        var geitdor = bildor;
+            
+            console.log("bildør" + bildor)
+            console.log("idfkdør" + geitdor)
+        
+            
+            
+        function sjekkDor(e) {
+            var trykketDor = e.target;
+            console.log(trykketDor.id);
+            
+        function openDoor() {
+                   if (geitdor == 1) {
+                rodDorEl.setAttribute("src", "geit.png")
+            } else if (geitdor == 2) {
+                gronnDorEl.setAttribute("src", "geit.png")
+            } else if (geitdor == 3) {
+                blaaDorEl.setAttribute("src", "geit.png")
+            }
+                
+                
+        }
+            
+        if (doropnet == true) {
+            
+            if (trykketDor.id === "r" && geitdor != 1) {
+                if (bildor == 1) {
+                rodDorEl.setAttribute("src", "bil.png")
+                avsnittEl.innerHTML = "Du valgte bilen!"
+            } else {
+                rodDorEl.setAttribute("src", "geit.png")
+                avsnittEl.innerHTML = "Du valgte geita"
+            }
+            } else if (trykketDor.id === "g" && geitdor != 2) {
+            console.log("grøn");
+            if (bildor == 2) {
+                gronnDorEl.setAttribute("src", "bil.png")
+                avsnittEl.innerHTML = "Du valgte bilen!"
+            } else {
+                gronnDorEl.setAttribute("src", "geit.png")
+                avsnittEl.innerHTML = "Du valgte geita"
+            }
+            } else if (trykketDor.id === "b" && geitdor !=3) {
+            console.log("blå");
+            if (bildor == 3) {
+                blaaDorEl.setAttribute("src", "bil.png")
+                avsnittEl.innerHTML = "Du valgte bilen!"
+            } else {
+                blaaDorEl.setAttribute("src", "geit.png")
+                avsnittEl.innerHTML = "Du valgte geita"
+            }
+            }
+            
+        } else if (trykketDor.id === "r") {
+            console.log("rød");
+            avsnittEl.innerHTML = "Vil du bytte dør?";
+            doropnet = true;
+            dorvalgt = 1;
+            
+            while (geitdor == dorvalgt || geitdor == bildor) {
+                geitdor = Math.floor(Math.random() * 3) + 1;
+                console.log(geitdor)
+            }
+            
+            openDoor()
+            
+        } else if (trykketDor.id === "g") {
+            console.log("grøn");
+            avsnittEl.innerHTML = "Vil du bytte dør?";
+            doropnet = true;
+            dorvalgt = 2;
+            
+            while (geitdor == dorvalgt || geitdor == bildor) {
+                geitdor = Math.floor(Math.random() * 3) + 1;
+                console.log(geitdor)
+            }
+            
+            openDoor()
+            
+        } else if (trykketDor.id === "b") {
+            console.log("blå");
+            avsnittEl.innerHTML = "Vil du bytte dør?";
+            doropnet = true;
+            dorvalgt = 3;
+            
+            
+            while (geitdor == dorvalgt || geitdor == bildor) {
+                geitdor = Math.floor(Math.random() * 3) + 1;
+                console.log(geitdor)
+            }
+            
+            openDoor()
+            
+            }
+        }
+        
+        </script>
+        
+    </body>
+    
+<script>
+    
+    var open = true;
+    
+    
+    var leftMenuEl = document.querySelector("#leftMenu");
+    var menuButtonEl = document.querySelector("#menuButton");
+    
+    setTimeout(function() {leftMenuEl.style.animation = "menuInnAnimation 0s forwards";}, 1);
+    open = false;
+    
+    menuButtonEl.addEventListener("click",toggleMenu);
+    
+    function toggleMenu() {
+        if(open) {
+            leftMenuEl.style.animation = "menuInnAnimation 1s forwards";
+            open = false;
+        } else {
+            leftMenuEl.style.animation = "menuOutAnimation 1s forwards";
+            open = true;
+        }
+    }
+    
+</script>
+    
+</html>

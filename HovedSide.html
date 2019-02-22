@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <title>Oppgave2 Hovedside</title>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="Style.css">
+    </head>
+
+<body background="bilde/tiling.png">
+    
+    
+    <top>
+        <a id="menuButton" class="clicky">
+            <img src="bilde/Menu.png" style="width: 50px; position: absolute; margin-top: 15px; margin-left: 15px;">
+        </a>
+        <a href="HovedSide.html">
+            <img src="bilde/logo.png" style="height: 50px; position: absolute; margin-top: 15px; margin-left: 100px">
+        </a>
+        <h1>HOVEDSIDE</h1>
+    </top>
+    
+    <leftmenu id="leftMenu">
+        <p>Ekstra meny (tbd)</p>
+    <footer>
+        <p style="font-size: 11px">
+            Laget av Andre Helland. <br>
+            Innhold er beskytet i henhold til norsk opphavsrett lov. <br>
+            Sist oppdatert 22.02.2019
+        </p>
+    </footer>
+    </leftmenu>
+    
+    
+    <ul>
+        <li> <a href="SSP/Stein%20saks%20papir.html">
+            <div class="side">
+                <h2>Stein Saks Papir, 1 Spiller</h2>
+                <img src="bilde/ssp.jpg" style="max-height: 150px; max-width: 300px">
+             </div>
+        </a></li>
+        <li> <a href="SSP/Stein%20saks%20papir%202.0.html">
+            <div class="side">
+                <h2>Stein Saks Papir, 2 Spiller</h2>
+                <img src="bilde/ssp2.jpg" style="max-height: 150px; max-width: 300px">
+             </div>
+        </a></li>
+        <li> <a href="Monty%20Hall2.0/Monty%20Hall2.0.html">
+            <div class="side">
+                <h2>Mothy Hall</h2>
+                <img src="bilde/montyHall.jpeg" style="max-height: 150px; max-width: 300px">
+            </div>
+        </a></li>
+        <li> <a href="Article/IBM.html">
+            <div class="side">
+                <h2>IBM Watson</h2>
+                <img src="bilde/IBM.jpg" style="max-height: 150px; max-width: 300px">
+            </div>
+        </a></li>
+        <li> <a href="Article/ITER.html">
+            <div class="side">
+                <h2>ITER</h2>
+                <img src="bilde/ITER1.jpg" style="max-height: 150px; max-width: 300px">
+            </div>
+        </a></li>
+        <li> <a href="Mandelbrot/P5/index.html">
+            <div class="side">
+                <h2>Mandelbrot</h2>
+                <img src="bilde/mandelbrot.gif" style="max-height: 150px; max-width: 300px">
+            </div>
+        </a></li>
+    </ul>
+    
+
+    
+</body>
+
+</html>
+
+<script>
+    
+    var open = true;
+    
+    var leftMenuEl = document.querySelector("#leftMenu");
+    var menuButtonEl = document.querySelector("#menuButton");
+    
+    menuButtonEl.addEventListener("click",toggleMenu);
+    
+    function toggleMenu() {
+        if(open) {
+            leftMenuEl.style.animation = "menuInnAnimation 1s forwards";
+            open = false;
+        } else {
+            leftMenuEl.style.animation = "menuOutAnimation 1s forwards";
+            open = true;
+        }
+    }
+    
+</script>

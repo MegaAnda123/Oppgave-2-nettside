@@ -1,0 +1,73 @@
+body {
+    background-color: black;
+    font-family: "Century Gothic", Arial, sans-serif;
+    font-size: 14px;
+    color: #f2f2f2;
+    }
+img:hover {
+    cursor: pointer;
+    }
+
+div {
+    margin:auto;
+    width: 55%;
+    margin-top: 100px;
+    background-color: #323232;
+}
+
+top {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    border: 3px solid #333;
+    background-color: #333;
+    left: -5px;
+    top: -5px
+}
+
+leftmenu {
+    width: 200px;
+    height: 100%;
+    background-color: #1a1a1a;
+    position: fixed;
+    left: 0px;
+    top: 80px;
+}
+
+h4 {
+    color:white;
+    font-family: "Century Gothic", Arial, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+footer {
+    position: fixed;
+    width: 200px;
+    bottom: 0px;
+    margin: auto;
+    margin-top: 10px;
+    border-top: 1px solid white;
+}
+
+@keyframes menuInnAnimation {
+    from { left: 0px; }
+    to   { left: -200px; }
+}
+
+@keyframes menuOutAnimation {
+    from { left: -200px; }
+    to   { left: 0px; }
+}
+
+.clicky {
+    cursor: pointer;
+}
+
+p1 {
+    color: white;
+    font-family: "Century Gothic", Arial, sans-serif;
+    align-self: center;
+    padding: 10px;
+}

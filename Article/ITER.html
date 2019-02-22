@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <title>Oppgave 1</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="Style.css">
+    </head>
+    
+    <body>
+        
+    <top>
+        <a id="menuButton" class="clicky">
+            <img src="Menu.png" style="width: 50px; position: absolute; margin-top: 15px; margin-left: 15px;">
+        </a>
+        <a href="HovedSide.html">
+            <img src="logo.png" style="height: 50px; position: absolute; margin-top: 15px; margin-left: 100px">
+        </a>
+        <h4>ITER side</h4>
+    </top>
+    
+    <leftmenu id="leftMenu">
+        <p1>Ekstra meny (tbd)</p1>
+    <footer>
+        <p1 style="font-size: 11px">
+            Laget av Andre Helland. <br>
+            Innhold er beskytet i henhold til norsk opphavsrett lov. <br>
+            Sist oppdatert 22.02.2019
+        </p1>
+    </footer>
+        
+    </leftmenu>
+        
+        <section style="margin-top: 100px">
+            
+            <article>
+                <h3>ITER</h3>
+                
+                <b>En artikkel om ITER.</b>
+                
+                <p>
+                    International Thermonuclear Experimental Reactor (ITER) er en tokamakreaktor til forskningsbruk besluttet bygd av et konsortium av EU (EURATOM), Russland, Kina, USA, Sør-Korea og Japan. Den baserer seg på deuterium og tritium (D-T) reaksjon der tritium «formeres» fra nøytronbestråling av litium i reaktorveggen. Deuterium finnes i naturen som tungtvann. Forskningen som følger er prosjektert til 35 år. Den skal teste systemer og materialer for kjernefysisk fusjon men vil ikke kunne danne en vedlikeholdbar reaksjon, og nye forskningsprosjekter som skal utprøve dette basert på fremtidige resultater fra ITER er allerede foreslått. Det ventes ikke at en fusjonsreaktor som leverer strøm kan settes i drift før 2050.
+                </p>
+                
+                    
+                    <figure>
+                        <img src="iter1.jpg" alt="Bilde av ITER" style="width: 100%; margin-bottom: 0px;">
+                        <h6>Konsept tegning av reaktoren ferdig bygd.</h6>
+                    </figure>
+                <p>
+                    Det ble bestemt i juni 2005 at ITER skal bygges i Europa. Nærmere bestemt i Cadarache i Sør-Frankrike. Konstruksjonkostnadene er forventet til å bli oppimot fem milliarder euro over en ti-årsperiode. Selve byggingen av reaktorens støttebygninger er forventet å starte i første halvdel av 2008. Senere selve reaktorbygningen og tokamakreaktoren i 2012. Hvis alt går etter planen vil det første gang bli dannet plasma i slutten av 2016.
+                </p>
+                
+                <figure>
+                    <img src="iter2.jpg" alt="Bilde av ITER" style="width: 100%; margin-bottom: 0px;">
+                    <h6>Bilde av pågående konstruksjon av ITER</h6>
+                </figure>
+                
+                <small>Laget av: <a href="https://no.wikipedia.org/wiki/ITER">Hentet fra Wikipedia</a></small>
+                
+            </article>
+        
+        </section>
+        
+    </body>
+</html>
+
+<script>
+    
+    var open = true;
+    
+    
+    var leftMenuEl = document.querySelector("#leftMenu");
+    var menuButtonEl = document.querySelector("#menuButton");
+    
+    setTimeout(function() {leftMenuEl.style.animation = "menuInnAnimation 0s forwards";}, 1);
+    open = false;
+    
+    menuButtonEl.addEventListener("click",toggleMenu);
+    
+    function toggleMenu() {
+        if(open) {
+            leftMenuEl.style.animation = "menuInnAnimation 1s forwards";
+            open = false;
+        } else {
+            leftMenuEl.style.animation = "menuOutAnimation 1s forwards";
+            open = true;
+        }
+    }
+    
+</script>

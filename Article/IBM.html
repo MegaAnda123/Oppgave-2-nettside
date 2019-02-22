@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <title>Oppgave 1</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="Style.css">
+    </head>
+    
+    <body>
+        
+    <top>
+        <a id="menuButton" class="clicky">
+            <img src="Menu.png" style="width: 50px; position: absolute; margin-top: 15px; margin-left: 15px;">
+        </a>
+        <a href="HovedSide.html">
+            <img src="logo.png" style="height: 50px; position: absolute; margin-top: 15px; margin-left: 100px">
+        </a>
+        <h4>IBM Watson side</h4>
+    </top>
+    
+    <leftmenu id="leftMenu">
+        <p1>Ekstra meny (tbd)</p1>
+    <footer>
+        <p1 style="font-size: 11px">
+            Laget av Andre Helland. <br>
+            Innhold er beskytet i henhold til norsk opphavsrett lov. <br>
+            Sist oppdatert 22.02.2019
+        </p1>
+    </footer>
+        
+    </leftmenu>
+        
+        <section style="margin-top: 100px">
+            
+            <article>
+                <h3>IBM Watson</h3>
+                
+                <b>En artikkel om IBM Watson.</b>
+                
+                <p>
+                    Watson er navnet på IBMs kognitive teknologier[1], som er basert på maskinlæringsalgoritmer, kunstig intelligens og maskinlæring. Watson består av komponenter som forstår, vurderer og lærer[2] basert på store mengder data Både strukturerte og ustrukturerte data som tekst, lyd og bilder, kan analyseres ved hjelp av kognitiv teknologi[3]. Watson forstår naturlig språk i tekst og tale og snakker flere språk.[4] Watsonteknologien består av mer enn 60 ulike teknologier som kan integreres med tradisjonelle analyse- og dataløsninger. Watson benyttes i dag som beslutningsstøtte i helsesektoren[5], produksjon/industri][6], eiendom, finans, varehandel, politi og advokatnæringen.[7] Når Watson-løsninger benyttes på nye fagområder blir de ikke programmert, men går igjennom opplæring av fageksperter. Systemets vurderinger baseres på tolkningsmønstrene fagekspertene lærer dem.
+                </p>
+                
+                <figure>
+                    <img src="Watson.jpg" alt="Bilde av på Jeapordy" style="width: 100%; margin-bottom: 0px;">
+                    <h6>IBM Watson konkurerer mot top Jeapory spillere.</h6>
+                </figure>
+                
+                <p>
+                    Første versjon av Watson ble i 2011 demonstrert som deltaker i TV-showet Jeopardy.[8][9] Der vant maskinen over to tidligere vinnere av konkurransen.[10] Den gangen var ikke teknologien koblet opp mot internett eller skybaserte databaser slik den er nå.
+
+                    Watson har fått sitt navn fra IBMs første administrerende direktør .
+                </p>
+                
+                <small>Laget av: <a href="https://no.wikipedia.org/wiki/Watson_(datamaskin)">Hentet fra Wikipedia</a></small>
+                
+            </article>
+        
+        </section>
+        
+    </body>
+</html>
+
+<script>
+    
+    var open = true;
+    
+    
+    var leftMenuEl = document.querySelector("#leftMenu");
+    var menuButtonEl = document.querySelector("#menuButton");
+    
+    setTimeout(function() {leftMenuEl.style.animation = "menuInnAnimation 0s forwards";}, 1);
+    open = false;
+    
+    menuButtonEl.addEventListener("click",toggleMenu);
+    
+    function toggleMenu() {
+        if(open) {
+            leftMenuEl.style.animation = "menuInnAnimation 1s forwards";
+            open = false;
+        } else {
+            leftMenuEl.style.animation = "menuOutAnimation 1s forwards";
+            open = true;
+        }
+    }
+    
+</script>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stein, saks, papir</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="Style.css">
+
+</head>
+    
+    <body>
+        
+    <top>
+        <a id="menuButton" class="clicky">
+            <img src="Menu.png" style="width: 50px; position: absolute; margin-top: 15px; margin-left: 15px;">
+        </a>
+        <a href="HovedSide.html">
+            <img src="logo.png" style="height: 50px; position: absolute; margin-top: 15px; margin-left: 100px">
+        </a>
+        <h4>IBM Watson side</h4>
+    </top>
+    
+    <leftmenu id="leftMenu">
+        <p1>Ekstra meny (tbd)</p1>
+    <footer>
+        <p1 style="font-size: 11px">
+            Laget av Andre Helland. <br>
+            Innhold er beskytet i henhold til norsk opphavsrett lov. <br>
+            Sist oppdatert 22.02.2019
+        </p1>
+    </footer>
+        
+    </leftmenu>
+        
+        <div class="innpakning">
+        
+        <p id="maskinPoeng"> <b>Spiller1:</b> 0 </p>
+        <p id="spillerPoeng"> <b>Spiller2:</b> 0 </p>
+       
+        <p id="info2"></p>
+        
+        <img src="bilder/spiller_stein.png" width="200" height="200" alt="spiller stein" id="stein">
+        <img src="bilder/spiller_saks.png" width="200" height="200" alt="spiller saks" id="saks">
+        <img src="bilder/spiller_papir.png" width="200" height="200" alt="spiller papir" id="papir">
+        <img src="bilder/maskin_ukjent.png" width="200" height="200" alt="maskinens valg" id="maskin">
+            
+        <p id="info"></p>
+        
+        </div>
+        
+        <script>
+        // Lager poeng variabler for spiller 1 og spiller 2
+        var spillerPoeng = 0;
+        var maskinPoeng = 0;
+        // Lager variabel som lagrer spiller 1's valg for senere sammenligning med spiller 2's valg
+        var maskinValg = "";
+        // Lager variabel som viser om spiller 1 har valgt
+        var valgt = false;
+        // Variabel som brukes for å avslutte spillet
+        var spillover = false;
+        // Variabler for spillere's navn og spillets lengde
+        var spiller1navn = prompt("Spiller1's navn?");
+        var spiller2navn = prompt("Spiller2's navn?");
+        var antallrunder = prompt("Antall runder?");
+        var VINNERSUM = Number(antallrunder)
+        
+        // Lager variabler for de fire p-elementene
+        var spillerPoengEl = document.querySelector("#spillerPoeng");
+        var maskinPoengEl = document.querySelector("#maskinPoeng");
+        var infoEl = document.querySelector("#info");
+        var info2El = document.querySelector("#info2");
+        
+        // Endrer p-elementer til å vise spilleres navn
+        spillerPoengEl.innerHTML = "<b>" + spiller2navn + ": </b>" + spillerPoeng;
+        maskinPoengEl.innerHTML = "<b>" + spiller1navn + ": </b>" + maskinPoeng; 
+            
+        // Lager variabler for de fire img-elementene
+        var steinEl = document.querySelector("#stein");
+        var saksEl = document.querySelector("#saks");
+        var papirEl = document.querySelector("#papir");
+        var maskinEl = document.querySelector("#maskin");
+        
+        // Endrer input bildene til de røde for spiller1
+        steinEl.src = "bilder/maskin_stein.png"
+        saksEl.src = "bilder/maskin_saks.png"
+        papirEl.src = "bilder/maskin_papir.png"
+        
+        // Legger til click-hendelser på de tre spiller1 bildene
+        steinEl.addEventListener("click", spiller1valge);
+        saksEl.addEventListener("click", spiller1valge);
+        papirEl.addEventListener("click", spiller1valge);
+        
+        // Skriver ut "bruksanvisningen" i info-elementet
+        infoEl.innerHTML = "Velg stein, saks eller papir. Førstemann til " + VINNERSUM + " poeng vinner spillet. ";
+        
+        // Skriver beskjed om hvem sin tur det er å velge
+        info2El.innerHTML = spiller1navn + " velg"
+        
+        // Funksjonen som håndterer når spiller 1 klikker
+        function spiller1valge (e) {
+            // Sjekker om spiller 1 har valgt denne runden
+            if (valgt == false) {
+            // Finner bildet som ble kikket
+            maskinValg = e.target.id;
+            // Endrer valgt variablen til "True"
+            valgt = true;
+            
+            // Input bildene endres til blå for spiller2
+            steinEl.src = "bilder/spiller_stein.png";
+            saksEl.src = "bilder/spiller_saks.png";
+            papirEl.src = "bilder/spiller_papir.png";
+            // Endrer beskjed til at det er spiller 2 sin tur å velge
+            info2El.innerHTML = spiller2navn + " Velg"
+            }
+            // Click-hendelser legges til for spiller2
+            steinEl.addEventListener("click", sjekkResultat);
+            saksEl.addEventListener("click", sjekkResultat);
+            papirEl.addEventListener("click", sjekkResultat);
+            }
+        
+        // Funksjonen som skal håndtere når spiller 2 klikker
+        function sjekkResultat (e) {
+            // Finner bildet som ble klikket på
+            var spillerValg = e.target.id;
+            // Skriver valgt bilde til konsollen
+            console.log("Spiller valgte: " + spillerValg);
+        // Skriver hva spiller 1 valgte
+        console.log("Maskinen valgte: " + maskinValg);
+        // Endrer det fjerde bilde til å vise hva spiller 1 valgte
+        maskinEl.src = "bilder/maskin_" + maskinValg + ".png";
+        
+        // Sammenligner for å avgjøre vinner
+        if (spillerValg === maskinValg) {
+            // Ingen vant, gjør ingenting
+        } else if (spillerValg === "stein") {
+            if (maskinValg === "saks") {
+                // Spiller 2 vant
+                spillerPoeng++;
+            } else if (maskinValg === "papir") {
+                // Spiller 1 vant
+                maskinPoeng++;
+            }
+        } else if (spillerValg === "saks") {
+            if (maskinValg === "papir") {
+                // Spiller 2 vant
+                spillerPoeng++;
+            } else if (maskinValg === "stein") {
+                // Spiller 1 vant
+                maskinPoeng++;
+            }
+        } else if (spillerValg === "papir") {
+            if (maskinValg === "stein") {
+                // Spiller 2 vant
+                spillerPoeng++;
+            } else if (maskinValg === "saks") {
+                // Spiller 1 vant
+                maskinPoeng++;
+            }
+        }
+        
+            // Endrer poengsummene i skjermbildet
+            spillerPoengEl.innerHTML = "<b>" + spiller2navn + ": </b>" + spillerPoeng;
+            maskinPoengEl.innerHTML = "<b>" + spiller1navn + ": </b>" + maskinPoeng; 
+            
+        // Sjekker om noen har vunnet
+        if (spillerPoeng === VINNERSUM || maskinPoeng === VINNERSUM) {
+            // Noen har vunnet
+            // Fjerner click-hendelse for spiller2
+            steinEl.removeEventListener("click", sjekkResultat);
+            saksEl.removeEventListener("click", sjekkResultat);
+            papirEl.removeEventListener("click", sjekkResultat);
+            
+            // Fjerner click-hendelse for spiller1
+            steinEl.removeEventListener("click", spiller1valge);
+            saksEl.removeEventListener("click", spiller1valge);
+            papirEl.removeEventListener("click", spiller1valge);
+            
+            // Endrer musepekeren, slik at bildene virker "deaktivert"
+            steinEl.style.cursor = "auto";
+            saksEl.style.cursor = "auto";
+            papirEl.style.cursor = "auto";
+            
+            // Enderer spill over variablen til true for å avslutte spillet
+            spillover = true;
+            
+            // Skriver ut en avslutningsbeskjed
+            if (spillerPoeng === VINNERSUM) {
+                infoEl.innerHTML = spiller2navn + " vant";
+            } else {
+                infoEl.innerHTML = spiller1navn + " vant";
+            }
+        }
+        
+        setTimeout(tilbakestillMaskin, 1000);
+        
+        function tilbakestillMaskin() {
+            // Endrer resultat bildet til spørsmålstegn
+            maskinEl.src = "bilder/maskin_ukjent.png";
+            
+            // Gjør spille klar for spiller1's input
+            if (valgt = true) {
+            valgt = false;
+                
+            
+            console.log(valgt)
+            
+            // Fjerner click-hendelse for spiller2
+            steinEl.removeEventListener("click", sjekkResultat);
+            saksEl.removeEventListener("click", sjekkResultat);
+            papirEl.removeEventListener("click", sjekkResultat);
+            
+            // Endrer input bilder til røde igjen
+            steinEl.src = "bilder/maskin_stein.png"
+            saksEl.src = "bilder/maskin_saks.png"
+            papirEl.src = "bilder/maskin_papir.png"
+            // Gir spiller1 beskjed om å velge
+            info2El.innerHTML = spiller1navn + " Velg"
+            // Gir beskjed om at spillet er over om spillover variablen er san
+            if (spillover) {
+                info2El.innerHTML = "Spillover"
+            }
+            }
+        }
+
+            
+        }
+            
+            
+        </script>
+        
+    </body>
+    
+<script>
+    
+    var open = true;
+    
+    
+    var leftMenuEl = document.querySelector("#leftMenu");
+    var menuButtonEl = document.querySelector("#menuButton");
+    
+    setTimeout(function() {leftMenuEl.style.animation = "menuInnAnimation 0s forwards";}, 1);
+    open = false;
+    
+    menuButtonEl.addEventListener("click",toggleMenu);
+    
+    function toggleMenu() {
+        if(open) {
+            leftMenuEl.style.animation = "menuInnAnimation 1s forwards";
+            open = false;
+        } else {
+            leftMenuEl.style.animation = "menuOutAnimation 1s forwards";
+            open = true;
+        }
+    }
+    
+</script>
+    
+</html>
