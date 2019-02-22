@@ -1,3 +1,7 @@
+body {
+    background: bilde/tiling2.png;
+}
+
 .innpaking {
     width: 720px;
     padding: 10px;
