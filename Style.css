@@ -84,7 +84,7 @@ p {
     background-color: #1a1a1a;
 }
 
-top {
+nav {
     position: fixed;
     width: 100%;
     height: 80px;
@@ -94,7 +94,7 @@ top {
     top: -5px
 }
 
-leftmenu {
+aside {
     width: 200px;
     height: 100%;
     background-color: #1a1a1a;
