@@ -37,10 +37,10 @@
         <p id="spillerPoeng"> <b>Spiller:</b> 0 </p>
         <p id="maskinPoeng"> <b>Maskin:</b> 0 </p>
         
-        <img src="Bilder/spiller_stein.png" width="200" height="200" alt="spiller stein" id="stein">
-        <img src="bilder/spiller_saks.png" width="200" height="200" alt="spiller saks" id="saks">
-        <img src="bilder/spiller_papir.png" width="200" height="200" alt="spiller papir" id="papir">
-        <img src="bilder/maskin_ukjent.png" width="200" height="200" alt="maskinens valg" id="maskin">
+        <img src="spiller_stein.png" width="200" height="200" alt="spiller stein" id="stein">
+        <img src="spiller_saks.png" width="200" height="200" alt="spiller saks" id="saks">
+        <img src="spiller_papir.png" width="200" height="200" alt="spiller papir" id="papir">
+        <img src="maskin_ukjent.png" width="200" height="200" alt="maskinens valg" id="maskin">
             
         <p id="info"></p>
         
@@ -94,7 +94,7 @@
         // Skriver maskinens valg til konsollen
         console.log("Maskinen valgte: " + maskinValg);
         // Endrer maskinens bilde
-        maskinEl.src = "bilder/maskin_" + maskinValg + ".png";
+        maskinEl.src = "maskin_" + maskinValg + ".png";
         
         // Sammenligner for å avgjøre vinner
         if (spillerValg === maskinValg) {
@@ -154,7 +154,7 @@
         
         function tilbakestillMaskin() {
             // Endrer maskinens bilde tilbake til spørsmålet
-            maskinEl.src = "bilder/maskin_ukjent.png";
+            maskinEl.src = "maskin_ukjent.png";
         }
             
         }

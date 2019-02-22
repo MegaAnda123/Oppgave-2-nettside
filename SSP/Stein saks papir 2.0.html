@@ -38,10 +38,10 @@
        
         <p id="info2"></p>
         
-        <img src="bilder/spiller_stein.png" width="200" height="200" alt="spiller stein" id="stein">
-        <img src="bilder/spiller_saks.png" width="200" height="200" alt="spiller saks" id="saks">
-        <img src="bilder/spiller_papir.png" width="200" height="200" alt="spiller papir" id="papir">
-        <img src="bilder/maskin_ukjent.png" width="200" height="200" alt="maskinens valg" id="maskin">
+        <img src="spiller_stein.png" width="200" height="200" alt="spiller stein" id="stein">
+        <img src="spiller_saks.png" width="200" height="200" alt="spiller saks" id="saks">
+        <img src="spiller_papir.png" width="200" height="200" alt="spiller papir" id="papir">
+        <img src="maskin_ukjent.png" width="200" height="200" alt="maskinens valg" id="maskin">
             
         <p id="info"></p>
         
@@ -80,9 +80,9 @@
         var maskinEl = document.querySelector("#maskin");
         
         // Endrer input bildene til de røde for spiller1
-        steinEl.src = "bilder/maskin_stein.png"
-        saksEl.src = "bilder/maskin_saks.png"
-        papirEl.src = "bilder/maskin_papir.png"
+        steinEl.src = "maskin_stein.png"
+        saksEl.src = "maskin_saks.png"
+        papirEl.src = "maskin_papir.png"
         
         // Legger til click-hendelser på de tre spiller1 bildene
         steinEl.addEventListener("click", spiller1valge);
@@ -105,9 +105,9 @@
             valgt = true;
             
             // Input bildene endres til blå for spiller2
-            steinEl.src = "bilder/spiller_stein.png";
-            saksEl.src = "bilder/spiller_saks.png";
-            papirEl.src = "bilder/spiller_papir.png";
+            steinEl.src = "spiller_stein.png";
+            saksEl.src = "spiller_saks.png";
+            papirEl.src = "spiller_papir.png";
             // Endrer beskjed til at det er spiller 2 sin tur å velge
             info2El.innerHTML = spiller2navn + " Velg"
             }
@@ -126,7 +126,7 @@
         // Skriver hva spiller 1 valgte
         console.log("Maskinen valgte: " + maskinValg);
         // Endrer det fjerde bilde til å vise hva spiller 1 valgte
-        maskinEl.src = "bilder/maskin_" + maskinValg + ".png";
+        maskinEl.src = "maskin_" + maskinValg + ".png";
         
         // Sammenligner for å avgjøre vinner
         if (spillerValg === maskinValg) {
@@ -194,7 +194,7 @@
         
         function tilbakestillMaskin() {
             // Endrer resultat bildet til spørsmålstegn
-            maskinEl.src = "bilder/maskin_ukjent.png";
+            maskinEl.src = "maskin_ukjent.png";
             
             // Gjør spille klar for spiller1's input
             if (valgt = true) {
@@ -209,9 +209,9 @@
             papirEl.removeEventListener("click", sjekkResultat);
             
             // Endrer input bilder til røde igjen
-            steinEl.src = "bilder/maskin_stein.png"
-            saksEl.src = "bilder/maskin_saks.png"
-            papirEl.src = "bilder/maskin_papir.png"
+            steinEl.src = "maskin_stein.png"
+            saksEl.src = "maskin_saks.png"
+            papirEl.src = "maskin_papir.png"
             // Gir spiller1 beskjed om å velge
             info2El.innerHTML = spiller1navn + " Velg"
             // Gir beskjed om at spillet er over om spillover variablen er san
