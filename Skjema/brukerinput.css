@@ -1,0 +1,67 @@
+.innpaking {
+    width: 50%;
+    padding: 5px;
+    margin: auto;
+    border: 3px solid black;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    display: block;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    color: #666666;;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.7);
+    box-sizing: border-box;
+}
+
+input [type="text"] {
+    min-width: 130px;
+    width: 100%;
+}
+
+input [type="number"], select {
+    min-width: 130px;
+    width: 30%;
+}
+textarea {
+    min-width: 130px;
+    width: 100%;
+    height: 60px;
+}
+
+button {
+    padding: 10px;
+    color: white;
+    text-shadow: 0 -1px 1px #335166;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    background: linear-gradient(rgba(255,255,255,0.2), transparent);
+    background-color: #5588AA;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.7);
+    outline: none;
+    cursor: pointer;
+}
+
+button:active {
+    transform: translate(1px,1px);
+}
+
+.dissabled {
+    padding: 10px;
+    color: white;
+    text-shadow: 0 -1px 1px #335166;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    background: linear-gradient(rgba(255,255,255,0.2), transparent);
+    background-color: grey;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.7);
+    outline: none;
+    cursor: default;
+}

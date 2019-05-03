@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bø Turisthotell</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="brukerinput.css">
+</head>
+    <body>
+        
+        <div class="innpaking">
+        
+        <h1>Bø hotell</h1>
+        
+        Navn 
+        <input type="text" id="navn">
+            
+        E-post
+        <input type="text" id="epost">
+        
+        Telefon nummer
+        <input type="number" id="telefon">
+            
+        Gjester
+        <select id="gjester" name="Antall gjester">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+            
+        Frokost?<br>
+        <input type="radio" name="frokost" value="ja" id="frokostJa"> Ja
+        <input type="radio" name="frokost" value="nei" id="frokostNei"> Nei
+        <br>
+        <br>
+        
+        Aktiviteter <br>
+        <input type="checkbox" name="aktivitet" id="sommerland" value="sommerland"> Dagpass til Bø Sommerland (300 kr) <br>
+        <input type="checkbox" name="aktivitet" id="klatrepark" value="klatrepark"> Dagspass til Høyt og Lavt klatrepark (250 kr) <br>
+        <input type="checkbox" name="aktivitet" id="fruktgaard" value="fruktgaard"> Omvisning på fruktgård (200 kr) <br>
+        <input type="checkbox" name="aktivitet" id="tur" value="tur"> Dagstur på Telemarkskanalen (800 kr) <br>
+        <br>
+            
+        <button id="bestill" onclick="registrer()">Bestill</button>
+            
+        <p id="bestiling"></p>
+        
+            <p id="pris"></p>
+            
+        </div>
+        
+        <script>
+        
+        var navnEl = document.querySelector("#navn")
+        var epostEl = document.querySelector("#epost")
+        var telefonEl = document.querySelector("#telefon")
+        var frokostJaEl = document.querySelector("#frokostJa")
+        var frokostNeiEl = document.querySelector("#frokostNei")
+        var sommerlandEl = document.querySelector("#sommerland")
+        var klatreparkEl = document.querySelector("#klatrepark")
+        var fruktgaardEl = document.querySelector("#fruktgaard")
+        var turEl = document.querySelector("#tur")
+        var gjesterEl = document.querySelector("#gjester")
+        var bestilingEl = document.querySelector("#bestiling")
+        var bestillBtnEl = document.querySelector("#bestill")
+        
+        var PrisEl = document.querySelector("#pris")
+        var prissum = 0
+        var prisprNatt = 0
+        var ekstraPris = 0
+        var frokostJaNei = "Nei"
+        var aktiviteter
+        
+        
+        function registrer() {
+            if (sjekkInputs()) {
+            dissableInputs();
+            prissum = 0
+            prisprNatt = 0
+            ekstraPris = 0
+            aktiviteter= ""
+            
+            if (frokostJaEl.checked) {
+                prisprNatt += 200*gjesterEl.value
+                frokostJaNei = "Ja"
+            }
+            
+            if (frokostNeiEl.checked) {
+                frokostJaNei = "Nei"
+            }
+            
+            if (sommerlandEl.checked) {
+                ekstraPris += 300*gjesterEl.value
+                aktiviteter += "<br>Sommerland"
+            }
+            
+            if (klatreparkEl.checked) {
+                ekstraPris += 250*gjesterEl.value
+                aktiviteter += "<br>Klatrepark"
+            }
+            
+            if (fruktgaardEl.checked) {
+                ekstraPris += 200*gjesterEl.value
+                aktiviteter += "<br>Fruktgår"
+            }
+            
+            if (turEl.checked) {
+                ekstraPris += 800*gjesterEl.value
+                aktiviteter += "<br>Dagstur"
+            }
+            
+            prisprNatt += 299*gjesterEl.value
+            
+            prissum += ekstraPris
+            prissum += prisprNatt
+            
+            bestilingEl.innerHTML = "<b>Bestilling:</b><br><b>Navn:</b>" + navnEl.value + "<br><b>E-post:</b>" + epostEl.value + "<br><b>Telefon nummer:</b>" + telefonEl.value + "<br><b>Antall gjester:</b>" + gjesterEl.value + "<br><b>Frokost:</b>" + frokostJaNei + "<br><b>Ekstra aktiviteter:</b>" + aktiviteter
+            
+            
+            PrisEl.innerHTML = "<b>Pris pr natt:</b>" + prisprNatt + "<br><b>Pris ekstra aktivitet:</b>" + ekstraPris + "<br><b>Pris sum:</b>" + prissum
+            }
+        }
+            
+        function sjekkInputs() {
+            out = true;
+            console.log(navnEl.value)
+            if (navnEl.value=="") {
+                out = false;
+                alert("Du må skive inn ett navn");
+            }
+            
+            if (!epostEl.value.includes("@") || epostEl.value=="" || !epostEl.value.includes(".")) {
+                out = false;
+                alert("Du må skrive inn en skikkelig e-post adresse");
+            }
+            
+            if (telefonEl.value=="" || !Number.isInteger(parseInt(telefonEl.value))) {
+                out = false;
+                alert("Du må skirve inn ett nummer");
+            }
+            
+            if(!frokostJaEl.checked && !frokostNeiEl.checked) {
+                out = false;
+                alert("Velg frokost")
+            }
+            
+            return out;
+        }
+            
+        function dissableInputs() {
+            bestillBtnEl.disabled = true;
+            navnEl.disabled = true;
+            epostEl.disabled = true;
+            telefonEl.disabled = true;
+            gjesterEl.disabled = true;
+            frokostJaEl.disabled = true;
+            frokostJaNei.disabled = true;
+            sommerlandEl.disabled = true;
+            klatreparkEl.disabled = true;
+            fruktgaardEl.disabled = true;
+            turEl.disabled = true;
+            bestillBtnEl.setAttribute("class","dissabled");
+        }
+        
+        
+        
+        
+        </script>
+        
+    </body>
+    
+</html>
